@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente lunar -->
+    <linearGradient id="lunarGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradiente da montanha -->
+    <linearGradient id="mountainGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#2d3561;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3d4a7c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e94560;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradiente da lua -->
+    <radialGradient id="moonGradient">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#f0f0f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d0d0d0;stop-opacity:1" />
+    </radialGradient>
+    
+    <!-- Filtro de brilho -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Filtro de sombra -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="400" fill="url(#lunarGradient)"/>
+  
+  <!-- Starfield -->
+  <circle cx="50" cy="50" r="1" fill="white" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="350" cy="80" r="1.5" fill="white" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="320" cy="120" r="1" fill="white" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0.4;0.7" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="80" cy="150" r="0.8" fill="white" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.5;0.9" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="370" cy="200" r="1.2" fill="white" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;0.2;0.5" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="30" cy="250" r="0.9" fill="white" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Lua -->
+  <circle cx="320" cy="80" r="35" fill="url(#moonGradient)" filter="url(#glow)">
+    <animateTransform attributeName="transform" type="rotate" from="0 320 80" to="360 320 80" dur="60s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Crateras na lua -->
+  <circle cx="310" cy="75" r="3" fill="#b0b0b0" opacity="0.6"/>
+  <circle cx="325" cy="85" r="2" fill="#b0b0b0" opacity="0.5"/>
+  <circle cx="315" cy="90" r="2.5" fill="#b0b0b0" opacity="0.4"/>
+  
+  <!-- Montanha Mons Huygens -->
+  <path d="M 150 280 L 200 120 L 250 280 Z" fill="url(#mountainGradient)" filter="url(#shadow)">
+    <animate attributeName="opacity" values="0.9;1;0.9" dur="4s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Detalhes da montanha -->
+  <path d="M 180 200 L 200 120 L 220 200" fill="none" stroke="#e94560" stroke-width="2" opacity="0.6"/>
+  <path d="M 170 240 L 200 180 L 230 240" fill="none" stroke="#e94560" stroke-width="1.5" opacity="0.4"/>
+  
+  <!-- Pico da montanha com brilho -->
+  <circle cx="200" cy="120" r="8" fill="#ffffff" opacity="0.8" filter="url(#glow)">
+    <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Estrela no topo -->
+  <path d="M 200 115 L 202 120 L 207 120 L 203 123 L 205 128 L 200 125 L 195 128 L 197 123 L 193 120 L 198 120 Z" 
+        fill="#ffd700" filter="url(#glow)">
+    <animateTransform attributeName="transform" type="rotate" from="0 200 120" to="360 200 120" dur="10s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Texto MONS HUYGENS -->
+  <text x="200" y="320" font-family="Arial, sans-serif" font-size="24" font-weight="bold" 
+        text-anchor="middle" fill="#ffffff" filter="url(#shadow)">
+    MONS HUYGENS
+  </text>
+  
+  <!-- Texto FRAMEWORK -->
+  <text x="200" y="345" font-family="Arial, sans-serif" font-size="16" 
+        text-anchor="middle" fill="#a0a0a0" filter="url(#shadow)">
+    FRAMEWORK
+  </text>
+  
+  <!-- Elementos quânticos orbitando -->
+  <g transform="translate(200, 120)">
+    <circle cx="0" cy="-40" r="3" fill="#00ffff" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="40" cy="0" r="3" fill="#ff00ff" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="40" r="3" fill="#ffff00" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="-40" cy="0" r="3" fill="#00ff00" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="7s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Código binário flutuando -->
+  <text x="50" y="350" font-family="monospace" font-size="10" fill="#00ff00" opacity="0.3">
+    01101000 01100101 01101100 01101100 01101111
+    <animate attributeName="y" values="350;340;350" dur="5s" repeatCount="indefinite"/>
+  </text>
+  
+  <text x="280" y="370" font-family="monospace" font-size="10" fill="#00ff00" opacity="0.3">
+    01001101 01001111 01001110 01010011
+    <animate attributeName="y" values="370;360;370" dur="4s" repeatCount="indefinite"/>
+  </text>
+  
+  <!-- Assinatura Lua -->
+  <text x="200" y="380" font-family="Arial, sans-serif" font-size="10" 
+        text-anchor="middle" fill="#808080" opacity="0.6">
+    Powered by Lua
+  </text>
+</svg>
